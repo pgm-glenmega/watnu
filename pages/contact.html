@@ -1,0 +1,125 @@
+<!-- /contact.html -->
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Contact — Watnu</title>
+    <link rel="stylesheet" href="../web/css/contact.css" />
+  </head>
+
+  <body>
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a class="topbar-brand" href="./index.html" aria-label="Watnu home">
+          <span class="brand-mark">W</span><span class="brand-text">atnu</span>
+        </a>
+
+        <nav class="topbar-nav" aria-label="Hoofdnavigatie">
+          <a class="topbar-link" href="./index.html">Home</a>
+          <a class="topbar-link" href="./start-hier.html">Start hier</a>
+          <a class="topbar-link" href="./over-watnu.html">Over Watnu</a>
+          <a class="topbar-link is-active" href="./contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="contact-hero" aria-label="Contact">
+        <div class="container contact-hero-inner">
+          <h1 class="contact-title">Deel je vraag</h1>
+          <p class="contact-subtitle">
+            Is er iets waarvan jij wou dat iemand het jou had uitgelegd?<br />
+            We horen het graag van je.
+          </p>
+
+          <form class="contact-form" action="#" method="post">
+            <div class="form-row">
+              <div class="field">
+                <label class="label" for="name">Jouw naam</label>
+                <input
+                  id="name"
+                  name="name"
+                  class="input"
+                  type="text"
+                  placeholder="Hoe moeten we jou noemen?"
+                  autocomplete="name"
+                />
+              </div>
+
+              <div class="field">
+                <label class="label" for="email">E-mailadres</label>
+                <input
+                  id="email"
+                  name="email"
+                  class="input"
+                  type="email"
+                  placeholder="Voor het geval je een antwoord terug wilt."
+                  autocomplete="email"
+                />
+              </div>
+            </div>
+
+            <div class="field field-full">
+              <label class="label" for="question">Jouw vraag</label>
+              <textarea
+                id="question"
+                name="question"
+                class="textarea"
+                rows="5"
+                placeholder="Wat is iets waarvan jij wou dat iemand het jou had uitgelegd?"
+              ></textarea>
+            </div>
+
+            <div class="actions">
+              <button class="btn-primary" type="submit">Ontdek de thema’s</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="container footer-grid">
+          <div class="footer-brand">
+            <div class="footer-logo">
+              <span class="footer-logo-mark">W</span><span class="footer-logo-text">atnu</span>
+            </div>
+            <p class="footer-small">
+              Jouw startpunt voor het echte leven.<br />
+              Geen moeilijke woorden, geen oordeel
+            </p>
+          </div>
+
+          <div class="footer-col">
+            <h4 class="footer-title">Thema's</h4>
+            <a class="footer-link" href="./thema-geld.html">Geld</a>
+            <a class="footer-link" href="./thema-werk.html">Werk</a>
+            <a class="footer-link" href="./thema-wonen.html">Wonen</a>
+            <a class="footer-link" href="./thema-zorg.html">Zorg</a>
+          </div>
+
+          <div class="footer-col">
+            <h4 class="footer-title">Meer thema's</h4>
+            <a class="footer-link" href="./thema-recht.html">Recht</a>
+            <a class="footer-link" href="./thema-welzijn.html">Mentaal welzijn</a>
+            <a class="footer-link" href="./thema-relaties.html">Relaties</a>
+            <a class="footer-link" href="./thema-mobiliteit.html">Mobiliteit</a>
+          </div>
+
+          <div class="footer-col">
+            <h4 class="footer-title">Watnu</h4>
+            <a class="footer-link" href="./over-watnu.html">Over watnu</a>
+            <a class="footer-link" href="./contact.html">Contact</a>
+          </div>
+        </div>
+
+        <div class="container footer-bottom">
+          <div class="footer-rule" aria-hidden="true"></div>
+          <p class="footer-legal">
+            © 2026 Watnu — Gemaakt met zorg voor iedereen die zijn weg moet vinden in het ‘echte’ leven.
+          </p>
+        </div>
+      </footer>
+    </main>
+  </body>
+</html>
