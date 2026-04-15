@@ -1,0 +1,21 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: 20189c3d-c071-4088-8495-9adf1a9ff6b6 # articles
+handle: articles
+maxAuthors: 1
+name: Articles
+previewTargets:
+  -
+    label: 'Primary entry page'
+    refresh: '1'
+    urlFormat: '{url}'
+propagationMethod: all
+siteSettings:
+  aff8a5f4-9b7c-411d-9a93-2752ddc33ef0: # watnu.be
+    enabledByDefault: true
+    hasUrls: true
+    template: articles/_entry.twig
+    uriFormat: 'articles/{slug}'
+type: channel

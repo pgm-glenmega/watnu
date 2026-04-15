@@ -1,0 +1,120 @@
+{% extends "_layout" %}
+
+{% block title %}Over Watnu — Watnu
+{% endblock %}
+
+{% block styles %}
+	<link rel="stylesheet" href="{{ alias('@web') }}/css/over-watnu.css">
+{% endblock %}
+
+{% block header %}
+	{% include "_partials/header.twig" with {
+    current: 'over-watnu',
+    variant: 'topbar'
+  } %}
+{% endblock %}
+
+{% block content %}
+
+	<section class="hero">
+		<div class="container hero-inner">
+			<h1 class="hero-title">Hoe is Watnu ontstaan?</h1>
+			<p class="hero-subtitle">
+				Omdat het echte leven geen handleiding heeft,<br/>
+				en je die soms pas mist wanneer het al te laat is.
+			</p>
+
+			<article class="story-card" aria-label="Verhaal">
+				<h2 class="story-title">WatNu? is ontstaan vanuit iets dat ik zelf meemaakte.</h2>
+
+				<div class="story-body">
+					<p>
+						Na het overlijden van mijn vader stonden mijn zus en ik plots voor keuzes waar niemand ons op
+						                voorbereid had. We ontdekten pas achteraf dat iets eenvoudigs, zoals het leegmaken van een huis,
+						                kan betekenen dat je een erfenis stilzwijgend aanvaardt.
+					</p>
+
+					<p>
+						Een week later begon ik aan mijn eerste job, na zes maanden zoeken en 53 sollicitaties. Niet veel later
+						                belandde ik in een IBO-contract waarvan de gevolgen niet duidelijk werden uitgelegd, met een grote
+						                financiële impact.
+					</p>
+
+					<p>
+						Op deze momenten had ik vooral nood aan helderheid,<br/>
+						niet aan kleine lettertjes of veronderstellingen.
+					</p>
+
+					<p>Dit zijn geen uitzonderingen.</p>
+
+					<p>
+						Dit zijn situaties waar veel jongeren in terechtkomen,<br/>
+						net wanneer emoties, geld en regels door elkaar lopen.
+					</p>
+				</div>
+			</article>
+		</div>
+	</section>
+
+	<section class="section lead" aria-label="Wat ons leidt">
+		<div class="container">
+			<h2 class="section-title">Wat ons leidt</h2>
+
+			<div class="lead-grid" role="list">
+				<article class="lead-card" role="listitem">
+					<div class="lead-icon dot-geld" aria-hidden="true"></div>
+					<h3 class="lead-card-title">Geld</h3>
+					<p class="lead-card-text">Budgetteren, sparen en grip krijgen op je financiën zonder stress.</p>
+				</article>
+
+				<article class="lead-card" role="listitem">
+					<div class="lead-icon dot-geld" aria-hidden="true"></div>
+					<h3 class="lead-card-title">Geld</h3>
+					<p class="lead-card-text">Budgetteren, sparen en grip krijgen op je financiën zonder stress.</p>
+				</article>
+
+				<article class="lead-card" role="listitem">
+					<div class="lead-icon dot-geld" aria-hidden="true"></div>
+					<h3 class="lead-card-title">Geld</h3>
+					<p class="lead-card-text">Budgetteren, sparen en grip krijgen op je financiën zonder stress.</p>
+				</article>
+			</div>
+		</div>
+	</section>
+
+	<section class="section not" aria-label="Wat WatNu niet is">
+		<div class="container not-inner">
+			<h2 class="not-title">Wat WatNu? niet is</h2>
+
+			<div class="not-block">
+				<h3 class="not-subtitle">We zijn geen experts.</h3>
+				<p class="not-text">
+					Geen advocaten, financieel adviseurs of artsen.<br/>
+					WatNu? is een startpunt — geen professioneel advies.<br/>
+					Voor belangrijke beslissingen raadpleeg je altijd een specialist.
+				</p>
+			</div>
+
+			<div class="not-block">
+				<h3 class="not-subtitle">We zijn geen complete encyclopedie.</h3>
+				<p class="not-text">
+					We behandelen de basics om je op weg te helpen.<br/>
+					Het doel is om chaos te verminderen, niet om die groter te maken.
+				</p>
+			</div>
+
+			<div class="not-block">
+				<h3 class="not-subtitle">We zijn niet perfect.</h3>
+				<p class="not-text">
+					Maar we proberen wél nuttig te zijn.<br/>
+					Zie je iets dat ontbreekt of niet klopt? Laat het ons weten. We passen het aan.
+				</p>
+			</div>
+		</div>
+	</section>
+
+{% endblock %}
+
+{% block footer %}
+	{% include "_partials/footer.twig" %}
+{% endblock %}

@@ -1,0 +1,88 @@
+columnSuffix: null
+handle: topiccolor
+instructions: null
+name: topicColor
+searchable: false
+settings:
+  allowCustomColors: false
+  palette:
+    1:
+      __assoc__:
+        -
+          - color
+          - '#ed1b25'
+        -
+          - label
+          - red
+        -
+          - default
+          - ''
+    2:
+      __assoc__:
+        -
+          - color
+          - '#0898f8'
+        -
+          - label
+          - blue
+        -
+          - default
+          - ''
+    3:
+      __assoc__:
+        -
+          - color
+          - '#00d6a4'
+        -
+          - label
+          - green
+        -
+          - default
+          - ''
+    4:
+      __assoc__:
+        -
+          - color
+          - '#ffb200'
+        -
+          - label
+          - yellow
+        -
+          - default
+          - ''
+    5:
+      __assoc__:
+        -
+          - color
+          - '#fca5ee'
+        -
+          - label
+          - pink
+        -
+          - default
+          - ''
+    6:
+      __assoc__:
+        -
+          - color
+          - '#fe5e20'
+        -
+          - label
+          - orange
+        -
+          - default
+          - ''
+    7:
+      __assoc__:
+        -
+          - color
+          - '#67dde2'
+        -
+          - label
+          - light-blue
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Color

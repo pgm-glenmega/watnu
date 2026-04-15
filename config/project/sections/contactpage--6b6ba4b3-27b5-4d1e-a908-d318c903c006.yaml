@@ -1,0 +1,21 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: 6606cd1b-2243-4334-8ce6-e1fbdce88189 # Contact Page
+handle: contactpage
+maxAuthors: 1
+name: contactPage
+previewTargets:
+  -
+    label: 'Primary entry page'
+    refresh: '1'
+    urlFormat: '{url}'
+propagationMethod: all
+siteSettings:
+  aff8a5f4-9b7c-411d-9a93-2752ddc33ef0: # watnu.be
+    enabledByDefault: true
+    hasUrls: true
+    template: contact.twig
+    uriFormat: contactpage
+type: single

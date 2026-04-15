@@ -1,0 +1,21 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: 1586cfa2-902e-4faf-8a55-ad56d873ac9d # about page
+handle: aboutPage
+maxAuthors: 1
+name: 'About Page'
+previewTargets:
+  -
+    label: 'Primary entry page'
+    refresh: '1'
+    urlFormat: '{url}'
+propagationMethod: all
+siteSettings:
+  aff8a5f4-9b7c-411d-9a93-2752ddc33ef0: # watnu.be
+    enabledByDefault: true
+    hasUrls: true
+    template: over-watnu.twig
+    uriFormat: about-page
+type: single

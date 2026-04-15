@@ -1,0 +1,184 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  22c6c132-8cc7-406a-a591-3cdd7e7e7ded:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2026-04-15T12:57:14+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: d30ef216-8ba2-46f1-ab87-ac92406de4b7
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-04-15T13:22:02+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 2c782c15-575f-4e24-bca4-c2053b99d171 # heroTitle
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: eb406bab-c679-48da-b623-6362fab10bc7
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-04-15T13:22:02+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 4d0d1745-9fc5-45da-80f4-b0ff431ca426 # heroSubtitle
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 14d3c74e-2916-4012-a9e3-9ccbba5f5ab1
+            userCondition: null
+            warning: null
+            width: 100
+        name: Hero
+        uid: f401867c-2486-4717-a94a-bc0de6e35f18
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-04-15T13:22:02+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 5ffeb246-3e1b-4bb9-96e8-b788a3371e5f # storyCardTitle
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ff69e72f-655a-4cb9-b149-1620add1b99e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-04-15T13:22:02+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 4494e805-6495-4039-bfd7-f4cba8425ba8 # storyBody
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4576014f-a524-485f-9c57-5ecb925d2f6a
+            userCondition: null
+            warning: null
+            width: 100
+        name: 'Story card'
+        uid: 2cfa7644-776f-416b-9382-009bbb54d047
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-04-15T13:22:02+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: e94b624d-83cd-4265-b543-93bda6e95d21 # missionSectionTitle
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c8a5df31-d6f9-4f96-8ca2-f8c1da2f92ef
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-04-15T13:22:02+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: f775dc18-5831-4105-b5e0-b5baaf79488f # missionCards
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ebf490a4-a9e3-44ba-9b25-686842133404
+            userCondition: null
+            warning: null
+            width: 100
+        name: '“Wat ons leidt” section'
+        uid: d2037dbd-242a-4c06-8d66-f886e0fe0d17
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-04-15T13:22:02+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: ff3c02da-b16e-4c68-88bc-827511b887f0 # DisclaimerBlocks
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: fbbf4d24-1b09-42ca-88a0-ae097614abfe
+            userCondition: null
+            warning: null
+            width: 100
+        name: 'disclaimer section'
+        uid: 07775e3c-6722-47b5-9ed0-bea7d5060735
+        userCondition: null
+    thumbFieldKey: null
+handle: aboutPage
+hasTitleField: true
+icon: null
+name: 'about page'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

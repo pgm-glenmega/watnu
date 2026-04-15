@@ -1,0 +1,58 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  d385d2cd-dd84-4f70-a553-09e2f6c21c5f:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-04-15T13:36:54+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 8b3ebf49-12bf-4f35-96ea-0b77c7b7f657 # contactTitle
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 8d48736e-64dd-4c62-8f73-b8861f63b170
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-04-15T13:36:54+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 91975e8d-1370-441e-a025-633723ab021d # contactSubtitle
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f9563d52-fbd4-4225-91b4-2fefa7dafa72
+            userCondition: null
+            warning: null
+            width: 100
+        name: 'Page intro'
+        uid: f23e0e71-414a-414e-9d17-d4e651eaf409
+        userCondition: null
+    thumbFieldKey: null
+handle: contactPage
+hasTitleField: false
+icon: null
+name: 'Contact Page'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

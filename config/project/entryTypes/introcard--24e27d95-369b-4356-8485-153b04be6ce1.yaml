@@ -1,0 +1,86 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  15447f06-c549-4111-8f92-1ec0f186943e:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2026-04-15T12:48:41+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 2d0c7f28-a946-4022-9b3e-05764ba0a340
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-04-15T12:50:22+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: a0ffb6b1-b763-48c4-85a2-2fc6304af7b7 # cardTitle
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 25c8f7dd-aa7c-44e5-b2f3-f0a0bc7c3572
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-04-15T12:50:22+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 872f36ea-d6db-4734-81cf-3a2205667e81 # cardText
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 197fc6e7-6961-4ab1-bd8b-a2a2a43aeda7
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: a1f34ea8-b4b6-49e2-8233-8e0f70f23a52
+        userCondition: null
+    thumbFieldKey: null
+handle: introcard
+hasTitleField: true
+icon: null
+name: introCard
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

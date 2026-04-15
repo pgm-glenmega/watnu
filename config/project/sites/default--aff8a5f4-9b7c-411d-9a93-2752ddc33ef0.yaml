@@ -1,0 +1,9 @@
+baseUrl: $PRIMARY_SITE_URL
+enabled: true
+handle: default
+hasUrls: true
+language: en
+name: watnu.be
+primary: true
+siteGroup: 037c4d37-5e09-42d3-b766-95eb6dc8fc98 # watnu.be
+sortOrder: 1

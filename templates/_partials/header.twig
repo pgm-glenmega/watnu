@@ -1,0 +1,34 @@
+{% set current = current ?? '' %}
+{% set variant = variant ?? 'topbar' %}
+
+{% if variant == 'home' %}
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="{{ siteUrl }}">
+        <span class="brand-mark">W</span><span class="brand-text">atnu</span>
+      </a>
+
+      <ul class="nav-links" role="list">
+        <li><a class="nav-link {{ current == 'home' ? 'is-active' }}" href="{{ siteUrl }}">Home</a></li>
+        <li><a class="nav-link {{ current == 'start-hier' ? 'is-active' }}" href="{{ url('start-hier') }}">Start hier</a></li>
+        <li><a class="nav-link {{ current == 'over-watnu' ? 'is-active' }}" href="{{ url('over-watnu') }}">Over Watnu</a></li>
+        <li><a class="nav-link {{ current == 'contact' ? 'is-active' }}" href="{{ url('contact') }}">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+{% else %}
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="topbar-brand" href="{{ siteUrl }}" aria-label="Watnu home">
+        <span class="brand-mark">W</span><span class="brand-text">atnu</span>
+      </a>
+
+      <nav class="topbar-nav" aria-label="Hoofdnavigatie">
+        <a class="topbar-link {{ current == 'home' ? 'is-active' }}" href="{{ siteUrl }}">Home</a>
+        <a class="topbar-link {{ current == 'start-hier' ? 'is-active' }}" href="{{ url('start-hier') }}">Start hier</a>
+        <a class="topbar-link {{ current == 'over-watnu' ? 'is-active' }}" href="{{ url('over-watnu') }}">Over Watnu</a>
+        <a class="topbar-link {{ current == 'contact' ? 'is-active' }}" href="{{ url('contact') }}">Contact</a>
+      </nav>
+    </div>
+  </header>
+{% endif %}

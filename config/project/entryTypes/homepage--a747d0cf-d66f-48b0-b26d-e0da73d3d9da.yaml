@@ -1,0 +1,200 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  fa79d08b-7bfd-40db-8f08-559da4596431:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2026-04-15T12:06:23+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: ffe48359-8bc1-4494-b7c1-76b959c755d8
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-04-15T12:39:22+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 2c782c15-575f-4e24-bca4-c2053b99d171 # heroTitle
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 0659b4fd-0e68-4666-9fe8-d0cfcd6e3dac
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-04-15T12:39:22+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 4d0d1745-9fc5-45da-80f4-b0ff431ca426 # heroSubtitle
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 0f011a03-e765-4298-b63f-5335cc5c31a2
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-04-15T12:39:22+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 36b17959-868b-4896-aa83-419aa8ae7fd9 # heroButtonText
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: cd45ce60-b1a9-4a5e-a2c5-647f6e6d25f7
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-04-15T12:53:47+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: a4092b67-9481-498a-beeb-7ae9bb57498c # heroBackgroundImage
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 85ce9e50-87ba-4a86-ae43-bd298d95e933
+            userCondition: null
+            warning: null
+            width: 100
+        name: hero
+        uid: 795916b1-f36a-42f7-9fe9-7f25d2eb681a
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-04-15T12:53:47+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 36705efb-c94b-4c41-9f80-269c5aea63aa # introSectionTitle
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4a65e5b7-91eb-4e9d-8884-cb1f523935e4
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-04-15T12:53:47+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 45408106-ae47-4c74-815d-04d8e42f4234 # introSectionQuote
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f878326f-e842-4af7-b660-252870227019
+            userCondition: null
+            warning: null
+            width: 100
+        name: intro
+        uid: d29f3bac-901f-4364-bcfd-b6fd97570945
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-04-15T12:53:47+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 2dc11e5d-890b-4f4a-8a03-379dd3f1cd6d # introCards
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 0a6ef1de-85a3-43ec-adb8-ff1e7c6013d3
+            userCondition: null
+            warning: null
+            width: 100
+        name: 'intro cards'
+        uid: b91ec5c8-a09f-4f2f-a5f1-a77b815d208a
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-04-15T12:53:47+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 77f75333-9302-457e-9f02-e374e6c4346a # homeCtaText
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 5072cee3-ee9d-40d4-91ef-a6e1f6666d68
+            userCondition: null
+            warning: null
+            width: 100
+        name: 'Homepage bottom CTA'
+        uid: 4c630354-966f-44d8-97f6-edc7c15e5362
+        userCondition: null
+    thumbFieldKey: null
+handle: homepage
+hasTitleField: true
+icon: null
+name: Homepage
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

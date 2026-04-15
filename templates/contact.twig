@@ -1,0 +1,54 @@
+{% extends "_layout" %}
+
+{% block title %}Contact — Watnu
+{% endblock %}
+
+{% block styles %}
+	<link rel="stylesheet" href="{{ alias('@web') }}/css/contact.css">
+{% endblock %}
+
+{% block header %}
+	{% include "_partials/header.twig" with {
+    current: 'contact',
+    variant: 'topbar'
+  } %}
+{% endblock %}
+
+{% block content %}
+	<section class="contact-hero" aria-label="Contact">
+		<div class="container contact-hero-inner">
+			<h1 class="contact-title">Deel je vraag</h1>
+			<p class="contact-subtitle">
+				Is er iets waarvan jij wou dat iemand het jou had uitgelegd?<br>
+				We horen het graag van je.
+			</p>
+
+			<form class="contact-form" action="#" method="post">
+				<div class="form-row">
+					<div class="field">
+						<label class="label" for="name">Jouw naam</label>
+						<input id="name" name="name" class="input" type="text" placeholder="Hoe moeten we jou noemen?" autocomplete="name">
+					</div>
+
+					<div class="field">
+						<label class="label" for="email">E-mailadres</label>
+						<input id="email" name="email" class="input" type="email" placeholder="Voor het geval je een antwoord terug wilt." autocomplete="email">
+					</div>
+				</div>
+
+				<div class="field field-full">
+					<label class="label" for="question">Jouw vraag</label>
+					<textarea id="question" name="question" class="textarea" rows="5" placeholder="Wat is iets waarvan jij wou dat iemand het jou had uitgelegd?"></textarea>
+				</div>
+
+				<div class="actions">
+					<button class="btn-primary" type="submit">Ontdek de thema’s</button>
+				</div>
+			</form>
+		</div>
+	</section>
+{% endblock %}
+
+{% block footer %}
+	{% include "_partials/footer.twig" %}
+{% endblock %}

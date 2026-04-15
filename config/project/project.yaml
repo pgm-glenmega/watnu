@@ -1,0 +1,80 @@
+dateModified: 1776260216
+email:
+  fromEmail: glen.meganck@gmail.com
+  fromName: watmu.be
+  transportType: craft\mail\transportadapters\Sendmail
+fs:
+  siteAssetsFs:
+    hasUrls: true
+    name: 'Site Assets FS'
+    settings:
+      path: '@webroot/uploads/site-assets'
+    type: craft\fs\Local
+    url: '@web/uploads/site-assets'
+meta:
+  __names__:
+    01bed75e-7f65-47c0-9d56-340f2ac3fa92: 'Article Tags' # Article Tags
+    2c782c15-575f-4e24-bca4-c2053b99d171: heroTitle # heroTitle
+    2dc11e5d-890b-4f4a-8a03-379dd3f1cd6d: introCards # introCards
+    2f3dd558-fd55-4a44-9cc6-25a081efb449: Homepage # Homepage
+    4d0d1745-9fc5-45da-80f4-b0ff431ca426: heroSubtitle # heroSubtitle
+    5ffeb246-3e1b-4bb9-96e8-b788a3371e5f: storyCardTitle # storyCardTitle
+    6b6ba4b3-27b5-4d1e-a908-d318c903c006: contactPage # contactPage
+    8b3ebf49-12bf-4f35-96ea-0b77c7b7f657: contactTitle # contactTitle
+    11e425c0-3b90-4b97-9f06-e6db903e0aa7: topicSubtitle # topicSubtitle
+    22eea450-0bec-4de0-8e2f-2cb071e5c0bc: articleFeatured # articleFeatured
+    24e27d95-369b-4356-8485-153b04be6ce1: introCard # introCard
+    36b17959-868b-4896-aa83-419aa8ae7fd9: heroButtonText # heroButtonText
+    037c4d37-5e09-42d3-b766-95eb6dc8fc98: watnu.be # watnu.be
+    38bfcba2-08f1-4c17-836d-f612674b285e: missionCard # missionCard
+    43e90266-1d66-4922-9aa6-1cb09fe4ab1e: articleExcerpt # articleExcerpt
+    64b2344c-b4b7-4b09-a80f-7fc90ab94eef: articleFeaturedImage # articleFeaturedImage
+    70f7bece-fc7b-4c08-889d-ab46e8728181: articleReadingTime # articleReadingTime
+    77f75333-9302-457e-9f02-e374e6c4346a: homeCtaText # homeCtaText
+    412b90a8-1986-42f2-9f12-3815657bd7bd: Topics # Topics
+    595a6847-5a05-48f0-b12a-3e520535e30a: 'Topic Icons' # Topic Icons
+    872f36ea-d6db-4734-81cf-3a2205667e81: cardText # cardText
+    1586cfa2-902e-4faf-8a55-ad56d873ac9d: 'about page' # about page
+    2980c853-94fa-4019-9091-6a2dd16296a7: topicColor # topicColor
+    4494e805-6495-4039-bfd7-f4cba8425ba8: storyBody # storyBody
+    5647bfa6-ba94-45a1-8c1d-76006af0f4b8: 'Article Tags' # Article Tags
+    5708ea6e-bc7a-49ed-b0d0-9fb645069a1f: blockText # blockText
+    6606cd1b-2243-4334-8ce6-e1fbdce88189: 'Contact Page' # Contact Page
+    20189c3d-c071-4088-8495-9adf1a9ff6b6: articles # articles
+    21640c25-9075-481b-be9c-13dcfaffb4a7: blockTitle # blockTitle
+    36705efb-c94b-4c41-9f80-269c5aea63aa: introSectionTitle # introSectionTitle
+    91975e8d-1370-441e-a025-633723ab021d: contactSubtitle # contactSubtitle
+    315237ee-a9be-4f15-a08b-6d3459ca0690: DisclaimerBlock # DisclaimerBlock
+    45408106-ae47-4c74-815d-04d8e42f4234: introSectionQuote # introSectionQuote
+    a0ffb6b1-b763-48c4-85a2-2fc6304af7b7: cardTitle # cardTitle
+    a92c11e4-d27a-4330-b99f-b3f6faf44864: Articles # Articles
+    a747d0cf-d66f-48b0-b26d-e0da73d3d9da: Homepage # Homepage
+    a4092b67-9481-498a-beeb-7ae9bb57498c: heroBackgroundImage # heroBackgroundImage
+    aff8a5f4-9b7c-411d-9a93-2752ddc33ef0: watnu.be # watnu.be
+    b603c559-fc6a-47f0-a9d6-f61619eaf91e: 'Article Images' # Article Images
+    c7135373-00fa-405e-9735-253b8423bdca: articleBody # articleBody
+    cac7e687-9b1b-4f92-beab-214f1a9dd203: 'hero backgroundimage' # hero backgroundimage
+    d7d6a749-0918-4843-94c9-5ae1b9ab96a4: topicIcon # topicIcon
+    d41f9961-3074-46f0-b8eb-8c092e0a451e: 'About Page' # About Page
+    e4a4b387-c733-4cef-a782-ab614ffcad41: articleTopic # articleTopic
+    e94b624d-83cd-4265-b543-93bda6e95d21: missionSectionTitle # missionSectionTitle
+    f775dc18-5831-4105-b5e0-b5baaf79488f: missionCards # missionCards
+    ff3c02da-b16e-4c68-88bc-827511b887f0: DisclaimerBlocks # DisclaimerBlocks
+plugins:
+  ckeditor:
+    edition: standard
+    enabled: true
+    schemaVersion: 5.0.0.1
+system:
+  edition: solo
+  live: true
+  name: watmu.be
+  schemaVersion: 5.9.0.8
+  timeZone: America/Los_Angeles
+users:
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoSubpath: null
+  photoVolumeUid: null
+  require2fa: false
+  requireEmailVerification: true

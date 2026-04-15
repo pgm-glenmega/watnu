@@ -1,0 +1,22 @@
+columnSuffix: null
+handle: articleTags
+instructions: null
+name: 'Article Tags'
+searchable: false
+settings:
+  allowSelfRelations: false
+  branchLimit: null
+  defaultPlacement: end
+  maintainHierarchy: false
+  maxRelations: null
+  minRelations: null
+  selectionLabel: null
+  showSearchInput: true
+  showSiteMenu: false
+  source: 'taggroup:5647bfa6-ba94-45a1-8c1d-76006af0f4b8' # Article Tags
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: list
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Tags

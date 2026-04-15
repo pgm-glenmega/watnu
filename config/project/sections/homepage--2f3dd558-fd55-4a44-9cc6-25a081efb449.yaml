@@ -1,0 +1,21 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: a747d0cf-d66f-48b0-b26d-e0da73d3d9da # Homepage
+handle: homepage
+maxAuthors: 1
+name: Homepage
+previewTargets:
+  -
+    label: 'Primary entry page'
+    refresh: '1'
+    urlFormat: '{url}'
+propagationMethod: all
+siteSettings:
+  aff8a5f4-9b7c-411d-9a93-2752ddc33ef0: # watnu.be
+    enabledByDefault: true
+    hasUrls: true
+    template: index.twig
+    uriFormat: homepage
+type: single

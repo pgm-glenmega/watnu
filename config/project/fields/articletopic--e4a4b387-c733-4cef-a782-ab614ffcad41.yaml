@@ -1,0 +1,22 @@
+columnSuffix: null
+handle: articletopic
+instructions: null
+name: articleTopic
+searchable: false
+settings:
+  allowSelfRelations: false
+  branchLimit: null
+  defaultPlacement: end
+  maintainHierarchy: false
+  maxRelations: null
+  minRelations: null
+  selectionLabel: null
+  showSearchInput: true
+  showSiteMenu: false
+  source: 'group:412b90a8-1986-42f2-9f12-3815657bd7bd' # Topics
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: list
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Categories

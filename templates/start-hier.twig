@@ -1,0 +1,69 @@
+{% extends "_layout" %}
+
+{% block title %}Start hier — Watnu
+{% endblock %}
+
+{% block styles %}
+	<link rel="stylesheet" href="{{ alias('@web') }}/css/start-hier.css">
+{% endblock %}
+
+{% block header %}
+	{% include "_partials/header.twig" with {
+    current: 'start-hier',
+    variant: 'topbar'
+  } %}
+{% endblock %}
+
+{% block content %}
+	<section class="topic-menu" aria-label="Thema's">
+		<div class="container topic-menu-inner" id="topicMenu" role="tablist" aria-label="Thema tabs"></div>
+	</section>
+
+	<section class="page-head">
+		<div class="container page-head-inner">
+			<div
+				class="topic-icon" id="topicIcon" aria-hidden="true">{# keep your svg #}
+			</div>
+
+			<div>
+				<h1 class="page-title" id="topicTitle">Werk</h1>
+				<p class="page-subtitle" id="topicSubtitle">
+					Een job vinden, contracten begrijpen en je rechten als werknemer kennen.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="search-wrap" aria-label="Zoeken">
+		<div class="container">
+			<label class="sr-only" for="search">Zoek</label>
+			<input id="search" class="search" type="search" placeholder="Zoek in dit thema…">
+		</div>
+	</section>
+
+	<section class="qa-grid" aria-label="Vragen">
+		<div class="container">
+			<div class="grid" id="cardsGrid" role="list"></div>
+			<p class="count" id="topicCount"></p>
+		</div>
+	</section>
+
+	<section class="cta-band" aria-label="Geen antwoord">
+		<div class="container cta-inner">
+			<h2 class="cta-title">Vind je geen antwoord op jouw vragen?</h2>
+			<p class="cta-text">
+				Laat het ons weten. Jij bent waarschijnlijk niet de enige met de vraag.<br>
+				Zo zorgen wij ervoor dat we het antwoord zoeken en anderen meteen ook zijn geholpen.
+			</p>
+			<a class="cta-btn" href="{{ url('contact') }}">Stuur ons jouw vraag!</a>
+		</div>
+	</section>
+{% endblock %}
+
+{% block footer %}
+	{% include "_partials/footer.twig" %}
+{% endblock %}
+
+{% block scripts %}
+	<script src="{{ alias('@web') }}/js/start-hier.js"></script>
+{% endblock %}
