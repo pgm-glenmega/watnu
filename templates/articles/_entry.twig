@@ -1,0 +1,46 @@
+{% extends "_layout" %}
+
+{% set topic = entry.articletopic.one() %}
+{% set featuredImage = entry.articlefeaturedimage.one() %}
+
+{% block title %}
+	{{ entry.title }}
+	— Watnu
+{% endblock %}
+
+{% block content %}
+	<article class="article-page">
+		<div class="container">
+			{% if topic %}
+				<p>{{ topic.title }}</p>
+			{% endif %}
+
+			<h1>{{ entry.title }}</h1>
+
+			{% if entry.articleexcerpt %}
+				<p>{{ entry.articleexcerpt }}</p>
+			{% endif %}
+
+			{% if featuredImage %}
+				<img src="{{ featuredImage.url }}" alt="{{ entry.title }}">
+			{% endif %}
+
+			{% if entry.articlereadingtime %}
+				<p>{{ entry.articlereadingtime }}
+					min lezen</p>
+			{% endif %}
+
+			<div class="article-body">
+				{{ entry.articlebody }}
+			</div>
+
+			{% if entry.articleTags|length %}
+				<div class="article-tags">
+					{% for tag in entry.articleTags.all() %}
+						<span>{{ tag.title }}</span>
+					{% endfor %}
+				</div>
+			{% endif %}
+		</div>
+	</article>
+{% endblock %}

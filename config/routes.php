@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Site URL Rules
  *
@@ -9,4 +10,7 @@
  * @link https://craftcms.com/docs/5.x/system/routing.html
  */
 
-return [];
+return [
+  'start-hier' => ['template' => 'start-hier'],
+  'start-hier/<topicSlug:{slug}>' => ['template' => 'start-hier'],
+];

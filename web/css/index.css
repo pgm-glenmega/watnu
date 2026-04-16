@@ -336,6 +336,17 @@ img {
   border-radius: 8px;
   margin-bottom: 14px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.card-icon img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  display: block;
 }
 .card-title {
   margin: 0 0 8px;

@@ -15,6 +15,10 @@
 {% endblock %}
 
 {% block content %}
+	{% set topics = craft.categories()
+    .group('topics')
+    .all() %}
+
 	<section class="hero" aria-label="Intro">
 		<div class="hero-bg" aria-hidden="true"></div>
 		<div class="hero-overlay" aria-hidden="true"></div>
@@ -50,7 +54,7 @@
 					</h3>
 					<p class="blurb-text">
 						Op school leerden we algebra, maar niet hoe je belastingen doet
-						                of een huurcontract leest.
+																								of een huurcontract leest.
 					</p>
 				</div>
 
@@ -60,7 +64,7 @@
 					</h3>
 					<p class="blurb-text">
 						We splitsen ingewikkelde onderwerpen op in eenvoudige, concrete
-						                stappen die je daadwerkelijk kunt volgen.
+																								stappen die je daadwerkelijk kunt volgen.
 					</p>
 				</div>
 
@@ -68,7 +72,7 @@
 					<h3 class="blurb-title">Watnu is<br/>jouw startpunt.</h3>
 					<p class="blurb-text">
 						Wij helpen je de eerste stap te zetten. Dat is vaak het
-						                moeilijkste deel.
+																								moeilijkste deel.
 					</p>
 				</div>
 			</div>
@@ -84,89 +88,32 @@
 			</p>
 
 			<div class="cards" role="list">
-				<article class="card" role="listitem">
-					<div class="card-icon" data-icon="money" aria-hidden="true"></div>
-					<h3 class="card-title">Geld</h3>
-					<p class="card-text">
-						Budgetteren, sparen en grip krijgen op je financiën zonder
-						                stress.
-					</p>
-					<a class="card-link" href="#">Leer meer →</a>
-				</article>
+				{% for topic in topics %}
+					{% set icon = topic.topicicon.one() %}
+					{% set color = topic.topiccolor ?: '#4C40FD' %}
 
-				<article class="card" role="listitem">
-					<div class="card-icon" data-icon="work" aria-hidden="true"></div>
-					<h3 class="card-title">Werk</h3>
-					<p class="card-text">
-						Een job vinden, contracten begrijpen en je rechten als werknemer
-						                kennen.
-					</p>
-					<a class="card-link" href="#">Leer meer →</a>
-				</article>
+					<article class="card" role="listitem">
+						<div class="card-icon" aria-hidden="true" style="background: {{ color }};">
+							{% if icon %}
+								<img src="{{ icon.url }}" alt="" loading="lazy" width="20" height="20">
+							{% endif %}
+						</div>
 
-				<article class="card" role="listitem">
-					<div class="card-icon" data-icon="home" aria-hidden="true"></div>
-					<h3 class="card-title">Wonen</h3>
-					<p class="card-text">
-						Huren, waarborgen, huurdersrechten en van een plek een thuis
-						                maken.
-					</p>
-					<a class="card-link" href="#">Leer meer →</a>
-				</article>
+						<h3 class="card-title">{{ topic.title }}</h3>
 
-				<article class="card" role="listitem">
-					<div class="card-icon" data-icon="care" aria-hidden="true"></div>
-					<h3 class="card-title">Zorg</h3>
-					<p class="card-text">
-						Ziekteverzekering, een dokter vinden en goed voor jezelf zorgen
-						                zonder verwarring.
-					</p>
-					<a class="card-link" href="#">Leer meer →</a>
-				</article>
+						{% if topic.topicsubtitle %}
+							<p class="card-text">{{ topic.topicsubtitle }}</p>
+						{% endif %}
 
-				<article class="card" role="listitem">
-					<div class="card-icon" data-icon="law" aria-hidden="true"></div>
-					<h3 class="card-title">Recht</h3>
-					<p class="card-text">
-						Contracten, je rechten en basiskennis die iedereen zou moeten
-						                hebben.
-					</p>
-					<a class="card-link" href="#">Leer meer →</a>
-				</article>
-
-				<article class="card" role="listitem">
-					<div class="card-icon" data-icon="mind" aria-hidden="true"></div>
-					<h3 class="card-title">Mentaal welzijn</h3>
-					<p class="card-text">
-						Zorg dragen voor je hoofd, omgaan met stress en weten wanneer je
-						                hulp mag vragen.
-					</p>
-					<a class="card-link" href="#">Leer meer →</a>
-				</article>
-
-				<article class="card" role="listitem">
-					<div class="card-icon" data-icon="relations" aria-hidden="true"></div>
-					<h3 class="card-title">Relaties</h3>
-					<p class="card-text">
-						Gezonde connecties, grenzen stellen en omgaan met sociale
-						                situaties.
-					</p>
-					<a class="card-link" href="#">Leer meer →</a>
-				</article>
-
-				<article class="card" role="listitem">
-					<div class="card-icon" data-icon="mobility" aria-hidden="true"></div>
-					<h3 class="card-title">Mobiliteit</h3>
-					<p class="card-text">
-						Je verplaatsen: autorijden, openbaar vervoer en verhuizen naar
-						                nieuwe plekken.
-					</p>
-					<a class="card-link" href="#">Leer meer →</a>
-				</article>
+						<a class="card-link" href="{{ url('start-hier/' ~ topic.slug) }}">
+							Leer meer ->
+						</a>
+					</article>
+				{% endfor %}
 			</div>
 
 			<div class="cta-row">
-				<a class="btn btn-outline" href="#">Vind een antwoord op jouw vraag!</a>
+				<a class="btn btn-outline" href="{{ url('contact') }}">Vind een antwoord op jouw vraag!</a>
 			</div>
 		</div>
 	</section>

@@ -1,6 +1,39 @@
 {% extends "_layout" %}
 
-{% block title %}Start hier — Watnu
+{% set topics = craft.categories()
+  .group('topics')
+  .all() %}
+
+{% set topicSlug = craft.app.request.getSegment(2) %}
+{% set selectedTopic = topicSlug
+  ? craft.categories().group('topics').slug(topicSlug).one()
+  : craft.categories().group('topics').one()
+%}
+
+{% set searchQuery = craft.app.request.getQueryParam('q') %}
+
+{% set articlesQuery = craft.entries()
+  .section('articles')
+  .relatedTo({
+    targetElement: selectedTopic,
+    field: 'articletopic'
+  })
+  .orderBy('postDate desc')
+%}
+
+{% if searchQuery %}
+	{% set articlesQuery = articlesQuery.search(searchQuery) %}
+{% endif %}
+
+{% set articles = selectedTopic ? articlesQuery.all() : [] %}
+
+{% block title %}
+	{% if selectedTopic %}
+		{{ selectedTopic.title }}
+		— Start hier — Watnu
+	{% else %}
+		Start hier — Watnu
+	{% endif %}
 {% endblock %}
 
 {% block styles %}
@@ -16,37 +49,106 @@
 
 {% block content %}
 	<section class="topic-menu" aria-label="Thema's">
-		<div class="container topic-menu-inner" id="topicMenu" role="tablist" aria-label="Thema tabs"></div>
+		<div class="container topic-menu-inner" role="tablist" aria-label="Thema tabs">
+			{% for topic in topics %}
+				{% set isActive = selectedTopic and selectedTopic.id == topic.id %}
+				{% set color = topic.topiccolor ?: '#4C40FD' %}
+
+				<a class="topic-pill" role="tab" aria-selected="{{ isActive ? 'true' : 'false' }}" href="{{ url('start-hier/' ~ topic.slug) }}">
+					<span class="topic-dot" style="background: {{ color }};" aria-hidden="true"></span>
+					{{ topic.title }}
+				</a>
+			{% endfor %}
+		</div>
 	</section>
 
-	<section class="page-head">
-		<div class="container page-head-inner">
-			<div
-				class="topic-icon" id="topicIcon" aria-hidden="true">{# keep your svg #}
+	{% if selectedTopic %}
+		{% set topicIcon = selectedTopic.topicicon.one() %}
+		{% set topicColor = selectedTopic.topiccolor ?: '#4C40FD' %}
+
+		<section class="page-head">
+			<div class="container page-head-inner">
+				<div class="topic-icon" aria-hidden="true" style="background: {{ topicColor }};">
+					{% if topicIcon %}
+						<img src="{{ topicIcon.url }}" alt="" loading="lazy" width="22" height="22">
+					{% endif %}
+				</div>
+
+				<div>
+					<h1 class="page-title">{{ selectedTopic.title }}</h1>
+					<p class="page-subtitle">
+						{{ selectedTopic.topicsubtitle }}
+					</p>
+				</div>
 			</div>
+		</section>
 
-			<div>
-				<h1 class="page-title" id="topicTitle">Werk</h1>
-				<p class="page-subtitle" id="topicSubtitle">
-					Een job vinden, contracten begrijpen en je rechten als werknemer kennen.
-				</p>
+		<section class="search-wrap" aria-label="Zoeken">
+			<div class="container">
+				<form method="get" action="{{ url('start-hier/' ~ selectedTopic.slug) }}">
+					<label class="sr-only" for="search">Zoek</label>
+					<input id="search" name="q" class="search" type="search" placeholder="Zoek in dit thema…" value="{{ searchQuery ?? '' }}">
+				</form>
 			</div>
-		</div>
-	</section>
+		</section>
 
-	<section class="search-wrap" aria-label="Zoeken">
-		<div class="container">
-			<label class="sr-only" for="search">Zoek</label>
-			<input id="search" class="search" type="search" placeholder="Zoek in dit thema…">
-		</div>
-	</section>
+		<section class="qa-grid" aria-label="Vragen">
+			<div class="container">
+				<div class="grid" role="list">
+					{% for article in articles %}
+						{% set featuredImage = article.articlefeaturedimage.one() %}
 
-	<section class="qa-grid" aria-label="Vragen">
-		<div class="container">
-			<div class="grid" id="cardsGrid" role="list"></div>
-			<p class="count" id="topicCount"></p>
-		</div>
-	</section>
+						<a class="qa-card" href="{{ article.url }}" role="listitem" aria-label="{{ article.title }}">
+							<div class="qa-thumb">
+								{% if featuredImage %}
+									<img src="{{ featuredImage.url }}" alt="{{ article.title }}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+								{% endif %}
+
+								{% if article.articleTags|length %}
+									<div class="qa-tags">
+										{% for tag in article.articleTags.limit(2).all() %}
+											<span class="tag" style="background: {{ topicColor }};">
+												{{ tag.title }}
+											</span>
+										{% endfor %}
+									</div>
+								{% endif %}
+							</div>
+
+							<div class="qa-footer">
+								<div class="qa-title">{{ article.title }}</div>
+
+								{% if article.articleexcerpt %}
+									<p class="qa-excerpt">{{ article.articleexcerpt }}</p>
+								{% endif %}
+
+								{% if article.articlereadingtime %}
+									<p class="qa-meta">{{ article.articlereadingtime }}
+										min lezen</p>
+								{% endif %}
+							</div>
+						</a>
+					{% else %}
+						<p class="count">Er zijn nog geen artikelen binnen ‘{{ selectedTopic.title }}’.</p>
+					{% endfor %}
+				</div>
+
+				{% if articles|length %}
+					<p class="count">
+						{{ articles|length }}
+						{{ articles|length == 1 ? 'artikel' : 'artikelen' }}
+						in ‘{{ selectedTopic.title }}’
+					</p>
+				{% endif %}
+			</div>
+		</section>
+	{% else %}
+		<section class="qa-grid" aria-label="Vragen">
+			<div class="container">
+				<p class="count">Geen geldig thema gevonden.</p>
+			</div>
+		</section>
+	{% endif %}
 
 	<section class="cta-band" aria-label="Geen antwoord">
 		<div class="container cta-inner">
@@ -62,8 +164,4 @@
 
 {% block footer %}
 	{% include "_partials/footer.twig" %}
-{% endblock %}
-
-{% block scripts %}
-	<script src="{{ alias('@web') }}/js/start-hier.js"></script>
 {% endblock %}
