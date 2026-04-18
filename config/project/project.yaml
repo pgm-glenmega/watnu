@@ -1,4 +1,4 @@
-dateModified: 1776520592
+dateModified: 1776527087
 email:
   fromEmail: glen.meganck@gmail.com
   fromName: watmu.be
@@ -17,6 +17,7 @@ meta:
     2c782c15-575f-4e24-bca4-c2053b99d171: heroTitle # heroTitle
     2dc11e5d-890b-4f4a-8a03-379dd3f1cd6d: introCards # introCards
     2f3dd558-fd55-4a44-9cc6-25a081efb449: Homepage # Homepage
+    3ecc87b2-3512-4645-ab1d-6401d0435dd0: logo # logo
     4d0d1745-9fc5-45da-80f4-b0ff431ca426: heroSubtitle # heroSubtitle
     5ffeb246-3e1b-4bb9-96e8-b788a3371e5f: storyCardTitle # storyCardTitle
     6b6ba4b3-27b5-4d1e-a908-d318c903c006: contactPage # contactPage
