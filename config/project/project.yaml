@@ -1,4 +1,4 @@
-dateModified: 1776365441
+dateModified: 1776520592
 email:
   fromEmail: glen.meganck@gmail.com
   fromName: watmu.be
@@ -20,6 +20,7 @@ meta:
     4d0d1745-9fc5-45da-80f4-b0ff431ca426: heroSubtitle # heroSubtitle
     5ffeb246-3e1b-4bb9-96e8-b788a3371e5f: storyCardTitle # storyCardTitle
     6b6ba4b3-27b5-4d1e-a908-d318c903c006: contactPage # contactPage
+    7d6de929-b15d-4adb-99af-8ae9f96e17b8: 'Total Views' # Total Views
     8b3ebf49-12bf-4f35-96ea-0b77c7b7f657: contactTitle # contactTitle
     11e425c0-3b90-4b97-9f06-e6db903e0aa7: topicSubtitle # topicSubtitle
     22eea450-0bec-4de0-8e2f-2cb071e5c0bc: articleFeatured # articleFeatured
@@ -65,6 +66,11 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 5.0.0.1
+  view-count:
+    edition: standard
+    enabled: true
+    licenseKey: 3MPHIXMNB3I5C76HIDFG5PHA
+    schemaVersion: 1.0.0
 system:
   edition: solo
   live: true

@@ -10,7 +10,8 @@
   : craft.categories().group('topics').one()
 %}
 
-{% set searchQuery = craft.app.request.getQueryParam('q') %}
+{% set searchQuery = craft.app.request.getQueryParam('q') ?? '' %}
+{% set sort = craft.app.request.getQueryParam('sort') ?? 'recent' %}
 
 {% set articlesQuery = craft.entries()
   .section('articles')
@@ -18,11 +19,18 @@
     targetElement: selectedTopic,
     field: 'articletopic'
   })
-  .orderBy('postDate desc')
 %}
 
 {% if searchQuery %}
 	{% set articlesQuery = articlesQuery.search(searchQuery) %}
+{% endif %}
+
+{% if sort == 'oldest' %}
+	{% set articlesQuery = articlesQuery.orderBy('postDate asc') %}
+{% elseif sort == 'popular' %}
+	{% do craft.viewCount.sort(articlesQuery) %}
+{% else %}
+	{% set articlesQuery = articlesQuery.orderBy('postDate desc') %}
 {% endif %}
 
 {% set articles = selectedTopic ? articlesQuery.all() : [] %}
@@ -54,7 +62,7 @@
 				{% set isActive = selectedTopic and selectedTopic.id == topic.id %}
 				{% set color = topic.topiccolor ?: '#4C40FD' %}
 
-				<a class="topic-pill" role="tab" aria-selected="{{ isActive ? 'true' : 'false' }}" href="{{ url('start-hier/' ~ topic.slug) }}">
+				<a class="topic-pill" role="tab" aria-selected="{{ isActive ? 'true' : 'false' }}" href="{{ url('start-hier/' ~ topic.slug, { q: searchQuery, sort: sort }) }}">
 					<span class="topic-dot" style="background: {{ color }};" aria-hidden="true"></span>
 					{{ topic.title }}
 				</a>
@@ -83,11 +91,22 @@
 			</div>
 		</section>
 
-		<section class="search-wrap" aria-label="Zoeken">
+		<section class="search-wrap" aria-label="Zoeken en sorteren">
 			<div class="container">
-				<form method="get" action="{{ url('start-hier/' ~ selectedTopic.slug) }}">
-					<label class="sr-only" for="search">Zoek</label>
-					<input id="search" name="q" class="search" type="search" placeholder="Zoek in dit thema…" value="{{ searchQuery ?? '' }}">
+				<form method="get" action="{{ url('start-hier/' ~ selectedTopic.slug) }}" class="search-controls">
+					<div class="search-control">
+						<label class="sr-only" for="search">Zoek</label>
+						<input id="search" name="q" class="search" type="search" placeholder="Zoek in dit thema…" value="{{ searchQuery }}">
+					</div>
+
+					<div class="sort-control">
+						<label class="sr-only" for="sort">Sorteer op</label>
+						<select id="sort" name="sort" class="sort-select">
+							<option value="recent" {{ sort == 'recent' ? 'selected' }}>Meest recent</option>
+							<option value="oldest" {{ sort == 'oldest' ? 'selected' }}>Oudst eerst</option>
+							<option value="popular" {{ sort == 'popular' ? 'selected' }}>Populariteit</option>
+						</select>
+					</div>
 				</form>
 			</div>
 		</section>
@@ -164,4 +183,20 @@
 
 {% block footer %}
 	{% include "_partials/footer.twig" %}
+{% endblock %}
+
+{% block scripts %}
+	<script>
+		document.addEventListener('DOMContentLoaded', () => {
+const sortSelect = document.getElementById('sort');
+if (! sortSelect) 
+return;
+
+
+
+sortSelect.addEventListener('change', () => {
+sortSelect.form.submit();
+});
+});
+	</script>
 {% endblock %}

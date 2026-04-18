@@ -1,46 +1,164 @@
 {% extends "_layout" %}
 
+{% if not craft.app.request.isPreview %}
+	{% do craft.viewCount.increment(entry.id) %}
+{% endif %}
+
 {% set topic = entry.articletopic.one() %}
 {% set featuredImage = entry.articlefeaturedimage.one() %}
+{% set tags = entry.articleTags.all() %}
+{% set accentColor = topic and topic.topiccolor ? topic.topiccolor : '#ED1B25' %}
+
+{% set relatedArticlesQuery = topic
+  ? craft.entries()
+    .section('articles')
+    .relatedTo({
+      targetElement: topic,
+      field: 'articletopic'
+    })
+    .id(['not', entry.id])
+    .limit(2)
+  : null
+%}
+
+{% if relatedArticlesQuery %}
+	{% do craft.viewCount.sort(relatedArticlesQuery) %}
+	{% set relatedArticles = relatedArticlesQuery.all() %}
+{% else %}
+	{% set relatedArticles = [] %}
+{% endif %}
 
 {% block title %}
 	{{ entry.title }}
 	— Watnu
 {% endblock %}
 
+{% block styles %}
+	<link rel="stylesheet" href="{{ alias('@web') }}/css/article-entry.css">
+{% endblock %}
+
+{% block header %}
+	{% include "_partials/header.twig" with {
+    current: 'start-hier',
+    variant: 'topbar'
+  } %}
+{% endblock %}
+
 {% block content %}
 	<article class="article-page">
-		<div class="container">
-			{% if topic %}
-				<p>{{ topic.title }}</p>
-			{% endif %}
+		<div class="container article-container">
+			<a class="article-back-link" href="{{ topic ? url('start-hier/' ~ topic.slug) : url('start-hier') }}">
+				Terug
+			</a>
 
-			<h1>{{ entry.title }}</h1>
+			<div class="article-meta-top">
+				{% if tags|length %}
+					{% for tag in tags|slice(0, 2) %}
+						<span class="article-pill" style="background: {{ loop.first ? accentColor : '#5A50FF' }};">
+							{{ tag.title }}
+						</span>
+					{% endfor %}
+				{% elseif topic %}
+					<span class="article-pill" style="background: {{ accentColor }};">
+						{{ topic.title }}
+					</span>
+				{% endif %}
+			</div>
+
+			<h1 class="article-title">{{ entry.title }}</h1>
 
 			{% if entry.articleexcerpt %}
-				<p>{{ entry.articleexcerpt }}</p>
+				<div class="article-intro-box">
+					<p>{{ entry.articleexcerpt }}</p>
+				</div>
 			{% endif %}
 
 			{% if featuredImage %}
-				<img src="{{ featuredImage.url }}" alt="{{ entry.title }}">
-			{% endif %}
-
-			{% if entry.articlereadingtime %}
-				<p>{{ entry.articlereadingtime }}
-					min lezen</p>
-			{% endif %}
-
-			<div class="article-body">
-				{{ entry.articlebody }}
-			</div>
-
-			{% if entry.articleTags|length %}
-				<div class="article-tags">
-					{% for tag in entry.articleTags.all() %}
-						<span>{{ tag.title }}</span>
-					{% endfor %}
+				<div class="article-featured-image-wrap">
+					<img class="article-featured-image" src="{{ featuredImage.url }}" alt="{{ featuredImage.title ?: entry.title }}" loading="lazy">
 				</div>
 			{% endif %}
+
+			{% if entry.articlebody %}
+				<div class="article-body prose">
+					{{ entry.articlebody }}
+				</div>
+			{% endif %}
+
+			<section class="article-action-section">
+				<div class="article-section-heading">
+					<span class="article-section-icon" style="background: {{ accentColor }};"></span>
+					<h2>Wat kan jij vandaag doen?</h2>
+				</div>
+
+				<div class="article-checklist">
+					<div class="article-check-item">
+						<span class="article-check-dot"></span>
+						<p>Maak één kleine eerste stap in plaats van alles tegelijk te willen oplossen.</p>
+					</div>
+					<div class="article-check-item">
+						<span class="article-check-dot"></span>
+						<p>Zoek betrouwbare informatie op en schrijf op wat voor jouw situatie echt relevant is.</p>
+					</div>
+					<div class="article-check-item">
+						<span class="article-check-dot"></span>
+						<p>Vraag hulp als je vastloopt. Duidelijkheid vragen is geen zwakte.</p>
+					</div>
+					<div class="article-check-item">
+						<span class="article-check-dot"></span>
+						<p>Vergelijk jezelf niet blind met anderen. Focus op jouw volgende stap.</p>
+					</div>
+					<div class="article-check-item">
+						<span class="article-check-dot"></span>
+						<p>Bewaar belangrijke info, afspraken of documenten op één vaste plek.</p>
+					</div>
+				</div>
+			</section>
+
+			<section class="article-tip-box" style="background: {{ accentColor }};">
+				<div class="article-tip-icon"></div>
+				<div class="article-tip-content">
+					<h3>Tip</h3>
+					<p>Je hoeft niet alles ineens onder controle te hebben. Rust en overzicht zijn belangrijker dan perfectie.</p>
+				</div>
+			</section>
+
+			{% if relatedArticles|length %}
+				<section class="article-related">
+					<h2 class="article-related-title">Gerelateerde vragen</h2>
+
+					<div class="article-related-list">
+						{% for related in relatedArticles %}
+							<a class="article-related-item" href="{{ related.url }}">
+								{{ related.title }}
+							</a>
+						{% endfor %}
+					</div>
+				</section>
+			{% endif %}
+
+			<div class="article-divider"></div>
+
+			<div class="article-bottom-cta">
+				<a class="article-outline-button" href="{{ topic ? url('start-hier/' ~ topic.slug) : url('start-hier') }}">
+					Terug naar het overzicht
+				</a>
+			</div>
 		</div>
 	</article>
+
+	<section class="cta-band" aria-label="Geen antwoord">
+		<div class="container cta-inner">
+			<h2 class="cta-title">Vind je geen antwoord op jouw vragen?</h2>
+			<p class="cta-text">
+				Laat het ons weten. Jij bent waarschijnlijk niet de enige met de vraag.<br>
+				Zo zorgen wij ervoor dat we het antwoord zoeken en anderen meteen ook zijn geholpen.
+			</p>
+			<a class="cta-btn" href="{{ url('contact') }}">Stuur ons jouw vraag!</a>
+		</div>
+	</section>
+{% endblock %}
+
+{% block footer %}
+	{% include "_partials/footer.twig" %}
 {% endblock %}

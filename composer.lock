@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "28059915778bc4285f2dcd18813c5734",
+    "content-hash": "34eea41d315f906bc45142b726f5e922",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -1087,6 +1087,54 @@
                 "php"
             ],
             "time": "2024-02-05T11:56:58+00:00"
+        },
+        {
+            "name": "doublesecretagency/craft-viewcount",
+            "version": "2.0.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doublesecretagency/craft-viewcount/zipball/ef5dbc46635ec077d570091e0c01c726119c326b",
+                "reference": "ef5dbc46635ec077d570091e0c01c726119c326b",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^5.0.0-beta"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "View Count",
+                "handle": "view-count",
+                "class": "doublesecretagency\\viewcount\\ViewCount"
+            },
+            "autoload": {
+                "psr-4": {
+                    "doublesecretagency\\viewcount\\": "src/"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Double Secret Agency",
+                    "homepage": "https://www.doublesecretagency.com/plugins"
+                }
+            ],
+            "description": "Count the number of times an element has been viewed.",
+            "keywords": [
+                "cms",
+                "counter",
+                "craft",
+                "craft-plugin",
+                "craftcms",
+                "view-count",
+                "views"
+            ],
+            "support": {
+                "docs": "https://www.doublesecretagency.com/plugins/view-count/docs",
+                "issues": "https://github.com/doublesecretagency/craft-viewcount/issues"
+            },
+            "time": "2024-02-21T23:27:15+00:00"
         },
         {
             "name": "egulias/email-validator",
@@ -8403,10 +8451,10 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
-    "platform": [],
-    "platform-dev": [],
-    "plugin-api-version": "2.6.0"
+    "platform": {},
+    "platform-dev": {},
+    "plugin-api-version": "2.9.0"
 }
