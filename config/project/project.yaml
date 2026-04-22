@@ -1,7 +1,11 @@
-dateModified: 1776527087
+dateModified: 1776852996
 email:
   fromEmail: glen.meganck@gmail.com
-  fromName: watmu.be
+  fromName: watnu
+  replyToEmail: glen.meganck@gmail.com
+  template: null
+  transportSettings:
+    command: '/usr/local/bin/mailpit sendmail -t --smtp-addr 127.0.0.1:1025'
   transportType: craft\mail\transportadapters\Sendmail
 fs:
   siteAssetsFs:
@@ -17,11 +21,9 @@ meta:
     2c782c15-575f-4e24-bca4-c2053b99d171: heroTitle # heroTitle
     2dc11e5d-890b-4f4a-8a03-379dd3f1cd6d: introCards # introCards
     2f3dd558-fd55-4a44-9cc6-25a081efb449: Homepage # Homepage
-    3ecc87b2-3512-4645-ab1d-6401d0435dd0: logo # logo
     4d0d1745-9fc5-45da-80f4-b0ff431ca426: heroSubtitle # heroSubtitle
     5ffeb246-3e1b-4bb9-96e8-b788a3371e5f: storyCardTitle # storyCardTitle
     6b6ba4b3-27b5-4d1e-a908-d318c903c006: contactPage # contactPage
-    7d6de929-b15d-4adb-99af-8ae9f96e17b8: 'Total Views' # Total Views
     8b3ebf49-12bf-4f35-96ea-0b77c7b7f657: contactTitle # contactTitle
     11e425c0-3b90-4b97-9f06-e6db903e0aa7: topicSubtitle # topicSubtitle
     22eea450-0bec-4de0-8e2f-2cb071e5c0bc: articleFeatured # articleFeatured
@@ -67,17 +69,32 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 5.0.0.1
+  contact-form:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+    settings:
+      allowAttachments: ''
+      prependSender: 'On behalf of'
+      prependSubject: 'New message from watnu.be'
+      successFlashMessage: 'Your message has been sent.'
+      toEmail: $CONTACT_FORM_TO_EMAIL
   view-count:
     edition: standard
     enabled: true
-    licenseKey: 3MPHIXMNB3I5C76HIDFG5PHA
+    licenseKey: WH16G5VECY9ABA1GRGFQ3VYB
+    schemaVersion: 1.0.0
+  vite:
+    edition: standard
+    enabled: true
     schemaVersion: 1.0.0
 system:
   edition: solo
   live: true
-  name: watmu.be
+  name: watnu.be
+  retryDuration: null
   schemaVersion: 5.9.0.8
-  timeZone: America/Los_Angeles
+  timeZone: Europe/Brussels
 users:
   allowPublicRegistration: false
   defaultGroup: null

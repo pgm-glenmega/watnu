@@ -1,10 +1,20 @@
 {% extends "_layout" %}
 
+{% set submission = submission ?? null %}
+
+{% macro errorList(errors) %}
+	{% if errors %}
+		{{ ul(errors, { class: 'errors' }) }}
+	{% endif %}
+{% endmacro %}
+
+{% from _self import errorList %}
+
 {% block title %}Contact — Watnu
 {% endblock %}
 
 {% block styles %}
-	<link rel="stylesheet" href="{{ alias('@web') }}/css/contact.css">
+	<link rel="stylesheet" href="{{ alias('@web') }}/css/pages/contact.css">
 {% endblock %}
 
 {% block header %}
@@ -23,26 +33,82 @@
 				We horen het graag van je.
 			</p>
 
-			<form class="contact-form" action="#" method="post">
+			{% if craft.app.session.hasFlash('success') %}
+				<p class="form-message form-message--success">
+					{{ craft.app.session.getFlash('success') }}
+				</p>
+			{% elseif craft.app.session.hasFlash('error') %}
+				<p class="form-message form-message--error">
+					{{ craft.app.session.getFlash('error') }}
+				</p>
+			{% endif %}
+
+			{% set sent = craft.app.request.getQueryParam('sent') %}
+
+			{% if sent %}
+				<div class="form-message form-message--success" role="status" aria-live="polite">
+					Je vraag is succesvol verzonden. We hebben ze goed ontvangen.
+				</div>
+			{% elseif craft.app.session.hasFlash('error') %}
+				<div class="form-message form-message--error" role="alert">
+					{{ craft.app.session.getFlash('error') }}
+				</div>
+			{% endif %}
+
+			<form class="contact-form" method="post" action="" accept-charset="UTF-8">
+				{{ csrfInput() }}
+				{{ actionInput('contact-form/send') }}
+				{{ redirectInput('contact') }}
+
 				<div class="form-row">
 					<div class="field">
-						<label class="label" for="name">Jouw naam</label>
-						<input id="name" name="name" class="input" type="text" placeholder="Hoe moeten we jou noemen?" autocomplete="name">
+						<label class="label" for="from-name">Jouw naam</label>
+						{{ input('text', 'fromName', submission.fromName ?? '', {
+              id: 'from-name',
+              class: 'input',
+              placeholder: 'Hoe moeten we jou noemen?',
+              autocomplete: 'name'
+            }) }}
+						{{ submission ? errorList(submission.getErrors('fromName')) }}
 					</div>
 
 					<div class="field">
-						<label class="label" for="email">E-mailadres</label>
-						<input id="email" name="email" class="input" type="email" placeholder="Voor het geval je een antwoord terug wilt." autocomplete="email">
+						<label class="label" for="from-email">E-mailadres</label>
+						{{ input('email', 'fromEmail', submission.fromEmail ?? '', {
+              id: 'from-email',
+              class: 'input',
+              placeholder: 'Voor het geval je een antwoord terug wilt.',
+              autocomplete: 'email'
+            }) }}
+						{{ submission ? errorList(submission.getErrors('fromEmail')) }}
 					</div>
 				</div>
 
 				<div class="field field-full">
-					<label class="label" for="question">Jouw vraag</label>
-					<textarea id="question" name="question" class="textarea" rows="5" placeholder="Wat is iets waarvan jij wou dat iemand het jou had uitgelegd?"></textarea>
+					<label class="label" for="subject">Onderwerp</label>
+					{{ input('text', 'subject', submission.subject ?? '', {
+            id: 'subject',
+            class: 'input',
+            placeholder: 'Waar gaat je vraag over?'
+          }) }}
+					{{ submission ? errorList(submission.getErrors('subject')) }}
+				</div>
+
+				<div class="field field-full">
+					<label class="label" for="message">Jouw vraag</label>
+					{{ tag('textarea', {
+            id: 'message',
+            class: 'textarea',
+            name: 'message',
+            rows: 5,
+            placeholder: 'Wat is iets waarvan jij wou dat iemand het jou had uitgelegd?',
+            text: submission.message ?? ''
+          }) }}
+					{{ submission ? errorList(submission.getErrors('message')) }}
 				</div>
 
 				<div class="actions">
-					<button class="btn-primary" type="submit">verzenden</button>
+					<button class="btn-primary" type="submit">Verzenden</button>
 				</div>
 			</form>
 		</div>

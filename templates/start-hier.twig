@@ -45,7 +45,7 @@
 {% endblock %}
 
 {% block styles %}
-	<link rel="stylesheet" href="{{ alias('@web') }}/css/start-hier.css">
+	<link rel="stylesheet" href="{{ alias('@web') }}/css/pages/start-hier.css">
 {% endblock %}
 
 {% block header %}
@@ -57,16 +57,20 @@
 
 {% block content %}
 	<section class="topic-menu" aria-label="Thema's">
-		<div class="container topic-menu-inner" role="tablist" aria-label="Thema tabs">
-			{% for topic in topics %}
-				{% set isActive = selectedTopic and selectedTopic.id == topic.id %}
-				{% set color = topic.topiccolor ?: '#4C40FD' %}
+		<div class="container">
+			<div class="topic-menu-inner" role="tablist" aria-label="Thema tabs" id="topicMenu">
+				{% for topic in topics %}
+					{% set isActive = selectedTopic and selectedTopic.id == topic.id %}
+					{% set color = topic.topiccolor ?: '#4C40FD' %}
 
-				<a class="topic-pill" role="tab" aria-selected="{{ isActive ? 'true' : 'false' }}" href="{{ url('start-hier/' ~ topic.slug, { q: searchQuery, sort: sort }) }}">
-					<span class="topic-dot" style="background: {{ color }};" aria-hidden="true"></span>
-					{{ topic.title }}
-				</a>
-			{% endfor %}
+					<a class="topic-pill {{ isActive ? 'is-active' }}" role="tab" aria-selected="{{ isActive ? 'true' : 'false' }}" href="{{ url('start-hier/' ~ topic.slug, { q: searchQuery, sort: sort }) }}" data-topic-pill data-topic-slug="{{ topic.slug }}" data-topic-color="{{ color }}">
+						<span class="topic-dot" style="background: {{ color }};" aria-hidden="true"></span>
+						<span class="topic-label">{{ topic.title }}</span>
+					</a>
+				{% endfor %}
+
+				<span class="topic-underline" id="topicUnderline" aria-hidden="true"></span>
+			</div>
 		</div>
 	</section>
 
@@ -186,10 +190,12 @@
 {% endblock %}
 
 {% block scripts %}
+	<script src="{{ alias('@web') }}/js/animations/topic-animation.js"></script>
+  <script src="{{ alias('@web') }}/js/animations/article-load-animation.js"></script>
 	<script>
 		document.addEventListener('DOMContentLoaded', () => {
 const sortSelect = document.getElementById('sort');
-if (! sortSelect) 
+if (! sortSelect)
 return;
 
 

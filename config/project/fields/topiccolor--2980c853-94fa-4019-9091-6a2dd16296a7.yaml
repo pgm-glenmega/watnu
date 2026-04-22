@@ -83,17 +83,6 @@ settings:
         -
           - default
           - ''
-    8:
-      __assoc__:
-        -
-          - color
-          - '#4c40fd'
-        -
-          - label
-          - purple
-        -
-          - default
-          - ''
 translationKeyFormat: null
 translationMethod: none
 type: craft\fields\Color

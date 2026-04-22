@@ -111,3 +111,26 @@
     grid-template-columns: 1fr;
   }
 }
+
+.form-message {
+  width: min(640px, 100%);
+  margin: 0 auto 22px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.form-message--success {
+  background: rgba(0, 214, 164, 0.12);
+  border: 1px solid rgba(0, 214, 164, 0.35);
+  color: #0f6b57;
+}
+
+.form-message--error {
+  background: rgba(237, 27, 37, 0.08);
+  border: 1px solid rgba(237, 27, 37, 0.25);
+  color: #9f1d24;
+}
